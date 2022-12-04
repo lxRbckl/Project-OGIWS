@@ -1,5 +1,21 @@
 {
-  "neighbor 1" : 3,
-  "neighbor 2" : 5,
-  "neighbor 3" : 11
+  "neighbor 1" : [
+
+    1,
+    2
+
+  ],
+  "neighbor 2" : [
+
+    2,
+    3
+
+  ],
+  "neighbor 3" : [
+
+    5,
+    6
+
+  ]
+
 }

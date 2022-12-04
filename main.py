@@ -16,6 +16,7 @@ from backend.resource import application
 application.layout = dbc.Container(
 
     fluid = True,
+    style = dict(backgroundColor = 'rgb(248, 240, 227)'),
     children = dbc.Row(
 
         id = 'mainRowId',
