@@ -188,8 +188,13 @@ def menuLayout(
 
                     # update <
                     html.Hr(),
-                    dbc.Button(id = 'updateButtonId', children = 'Update',
-                               style = dict(position = 'right'))
+                    dbc.Button(
+
+                        children = 'Update',
+                        id = 'updateButtonId',
+                        className = 'float-end'
+
+                    )
 
                     # >
 
