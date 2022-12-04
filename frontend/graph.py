@@ -4,6 +4,7 @@ import dash_bootstrap_components as dbc
 from dash.dependencies import Input, Output, State
 
 from backend.load import loadFunction
+from backend.translate import translateFunction
 from backend.resource import application, gDirectory
 
 # >
@@ -32,8 +33,10 @@ def buttonCallback(
 ):
     '''  '''
 
-    if (not pInputValue or not pDropdownValue): return None
+    if (not pInputValue and not pDropdownValue): return None
     else:
 
-        loadFunction(pFile = pInputValue if (pInputValue) else pDropdownValue)
+        load = loadFunction(pFile = pInputValue if (pInputValue) else pDropdownValue)
+        translate = translateFunction(pLoad = load)
+
         return None

@@ -24,9 +24,9 @@ def loadFunction(
 
     # load <
     data = {s : [] for s in pSpeed}
-    for r, (s, i) in enumerate(data.items()):
+    for r, (s, i) in enumerate(data.items(), start = 1):
 
-        for c in range(pLimit['row']):
+        for c in range(1, pLimit['row']):
 
             try:
 
@@ -39,8 +39,6 @@ def loadFunction(
 
             except: pass
 
-    for k, v in data.items():
-
-        print(k, v)
-
     # >
+
+    return data
