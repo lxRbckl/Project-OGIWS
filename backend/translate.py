@@ -43,4 +43,4 @@ def translateFunction(
 
             })
 
-    print(translate) # remove
+    return translate
