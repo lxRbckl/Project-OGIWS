@@ -18,10 +18,6 @@ def figureFunction(
 ):
     '''  '''
 
-    [print(k, n['name'], n['y']) for n in v]
-    print(v[0]['x'])
-    print()
-
     figure = go.Figure(
 
         layout = dict(
