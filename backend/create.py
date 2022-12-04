@@ -10,7 +10,7 @@ from backend.resource import gDirectory
 def createFunction(
 
         pFile: str,
-        pSpeed: list = jsonLoad(pFile = f'{gDirectory}/template/speed.json')
+        pSpeed: list = jsonLoad(pFile = f'{gDirectory}/template/wspeed.json')
 
 ):
     '''  '''
