@@ -1,5 +1,6 @@
 # import <
 from dash import html, dcc
+from lxRbckl import jsonLoad
 from os import listdir, system
 import dash_bootstrap_components as dbc
 from dash.dependencies import Input, Output, State
@@ -20,7 +21,7 @@ def menuFunction():
             # message <
             dbc.Alert(
 
-                is_open = True,
+                is_open = False,
                 dismissable = True,
                 id = 'messageAlertId',
                 children = 'Action Completed.',
@@ -143,15 +144,22 @@ def buttonCallback(
 
     pClick: int,
     pDropdownValue: str,
-    pInputValue: str
+    pInputValue: str,
+    s
 
 ):
     '''  '''
 
-    print(pDropdownValue) # remove
-    print(pInputValue) # remove
+    # if (boot) <
+    # else (edit) <
+    if (not pClick): return False
+    else:
 
-    # # if (boot) <
-    # if (not pClick):
+        # if (input) <
+        # open requested <
+        if (pInputValue): pass
+        #
 
-    return True
+        # >
+
+        return True
