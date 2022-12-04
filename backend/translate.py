@@ -1,6 +1,5 @@
 # import <
 from lxRbckl import jsonLoad
-import plotly.graph_objects as go
 
 from backend.resource import gDirectory
 

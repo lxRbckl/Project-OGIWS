@@ -11,27 +11,13 @@ from backend.resource import application, gDirectory
 # >
 
 
-def menuFunction():
+def menuLayout():
     '''  '''
 
     return dbc.Col(
 
         width = 3,
         children = [
-
-            # message <
-            dbc.Alert(
-
-                is_open = False,
-                duration = 15000,
-                dismissable = True,
-                id = 'messageAlertId',
-                children = 'Action Completed.',
-                style = dict(marginTop = '2%')
-
-            ),
-
-            # >
 
             # header <
             dbc.Row(
@@ -65,7 +51,7 @@ def menuFunction():
                 ]
 
             ),
-            html.Hr(),
+            html.Hr(id = 'hrId'),
 
             # >
 
@@ -136,7 +122,7 @@ def menuFunction():
 
 @application.callback(
 
-    Output('messageAlertId', 'is_open'),
+    Output('hrId', 'children'),
     Input('editButtonId', 'n_clicks'),
     State('menuDropdownId', 'value'),
     State('createInputId', 'value')
@@ -153,7 +139,7 @@ def buttonCallback(
 
     # if (boot) <
     # else (edit) <
-    if (not pClick): return False
+    if (not pClick): return None
     else:
 
         # if (input) <
@@ -163,4 +149,4 @@ def buttonCallback(
 
         # >
 
-        return True
+        return None

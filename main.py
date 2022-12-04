@@ -6,8 +6,8 @@ from dash import html
 import dash_bootstrap_components as dbc
 from dash.dependencies import Input, Output, State
 
-from frontend.menu import menuFunction
-from frontend.graph import graphFunction
+from frontend.menu import menuLayout
+from frontend.graph import graphLayout
 from backend.resource import application
 
 # >
@@ -22,8 +22,8 @@ application.layout = dbc.Container(
         id = 'mainRowId',
         children = [
 
-            menuFunction(),
-            graphFunction()
+            menuLayout(),
+            graphLayout()
 
         ]
 
@@ -43,8 +43,8 @@ def buttonCallback(pClick: int):
 
     return [
 
-        dbc.Row(justify = 'center', children = menuFunction()),
-        dbc.Row(justify = 'center', children = graphFunction())
+        dbc.Row(justify = 'center', children = menuLayout()),
+        dbc.Row(justify = 'center', children = graphLayout())
 
     ]
 
