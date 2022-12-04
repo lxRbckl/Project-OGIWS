@@ -7,14 +7,14 @@ from backend.resource import gDirectory
 # >
 
 
-def loadFunction(
-
-        pFile: str,
-        pLimit: dict = jsonLoad(pFile = f'{gDirectory}/backend/template/limit.json'),
-        pSpeed: list = jsonLoad(pFile = f'{gDirectory}/backend/template/wspeed.json')
-
-):
+def loadFunction(pFile: str):
     '''  '''
+
+    # local <
+    limit: dict = jsonLoad(pFile = f'{gDirectory}/backend/template/limit.json')
+    speed: list = jsonLoad(pFile = f'{gDirectory}/backend/template/wspeed.json')
+
+    # >
 
     # open <
     wb = xlrd.open_workbook(filename = f'{gDirectory}/backend/data/{pFile}')
@@ -23,10 +23,10 @@ def loadFunction(
     # >
 
     # load <
-    load = {s : [] for s in pSpeed}
+    load = {s : [] for s in speed}
     for r, (s, i) in enumerate(load.items(), start = 1):
 
-        for c in range(1, pLimit['col']):
+        for c in range(1, limit['col']):
 
             try:
 

@@ -12,13 +12,14 @@ from backend.resource import application, gDirectory
 # >
 
 
-def menuLayout(
-
-        pLimit = jsonLoad(pFile = f'{gDirectory}/backend/template/limit.json'),
-        pNeighbor = jsonLoad(pFile = f'{gDirectory}/backend/template/neighbor.json')
-
-):
+def menuLayout():
     '''  '''
+
+    # local <
+    limit = jsonLoad(pFile = f'{gDirectory}/backend/template/limit.json')
+    neighbor = jsonLoad(pFile = f'{gDirectory}/backend/template/neighbor.json')
+
+    # >
 
     return dbc.Row(
 
@@ -151,7 +152,7 @@ def menuLayout(
 
                                 type = 'number',
                                 id = 'numcolInputId',
-                                value = pLimit['col']
+                                value = limit['col']
 
                             ),
 
@@ -160,7 +161,7 @@ def menuLayout(
 
                                 type = 'number',
                                 id = 'ytickInputId',
-                                value = pLimit['ytick']
+                                value = limit['ytick']
 
                             )
 
@@ -186,8 +187,8 @@ def menuLayout(
                                     min = 0,
                                     max = 25,
                                     id = f'{k}L',
-                                    type = 'number',
-                                    value = v['range'][0]
+                                    value = v[0],
+                                    type = 'number'
 
                                 ),
                                 dbc.Input(
@@ -195,8 +196,8 @@ def menuLayout(
                                     min = 0,
                                     max = 25,
                                     id = f'{k}R',
-                                    type = 'number',
-                                    value = v['range'][1]
+                                    value = v[1],
+                                    type = 'number'
 
                                 )
 
@@ -206,7 +207,7 @@ def menuLayout(
 
                         ))
 
-                    for k, v in pNeighbor.items()],
+                    for k, v in neighbor.items()],
 
                     # >
 

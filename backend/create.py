@@ -7,13 +7,13 @@ from backend.resource import gDirectory
 # >
 
 
-def createFunction(
-
-        pFile: str,
-        pSpeed: list = jsonLoad(pFile = f'{gDirectory}/backend/template/wspeed.json')
-
-):
+def createFunction(pFile: str):
     '''  '''
+
+    # local <
+    speed = jsonLoad(pFile = f'{gDirectory}/backend/template/wspeed.json')
+
+    # >
 
     # create <
     wb = xlwt.Workbook()
@@ -22,7 +22,7 @@ def createFunction(
     # >
 
     # add speed <
-    for c, i in enumerate(pSpeed, start = 1):
+    for c, i in enumerate(speed, start = 1):
 
         ws.write(
 

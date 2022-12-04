@@ -11,12 +11,16 @@ from backend.resource import gDirectory
 def figureFunction(
 
         k: str,
-        v: list,
-        pLimit = jsonLoad(pFile = f'{gDirectory}/backend/template/limit.json'),
-        pGraph = jsonLoad(pFile = f'{gDirectory}/backend/template/graph.json')
+        v: list
 
 ):
     '''  '''
+
+    # local <
+    limit = jsonLoad(pFile = f'{gDirectory}/backend/template/limit.json')
+    graph = jsonLoad(pFile = f'{gDirectory}/backend/template/graph.json')
+
+    # >
 
     figure = go.Figure(
 
@@ -50,14 +54,14 @@ def figureFunction(
         barmode = 'stack',
         yaxis = dict(
 
-            dtick = pLimit['ytick']
+            dtick = limit['ytick']
 
         ),
         xaxis = dict(
 
             type = 'category',
-            tickvals = pGraph,
-            ticktext = pGraph,
+            tickvals = graph,
+            ticktext = graph,
             tickmode = 'array'
 
         )
