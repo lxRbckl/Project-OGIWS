@@ -21,12 +21,8 @@ application.layout = dbc.Container(
         id = 'mainRowId',
         children = [
 
-            # menu <
-            # graph <
             menuFunction(),
             graphFunction()
-
-            # >
 
         ]
 
@@ -38,26 +34,16 @@ application.layout = dbc.Container(
 @application.callback(
 
     Output('mainRowId', 'children'),
-    Input('refreshButtonId', 'n_clicks'),
-    State('mainRowId', 'children')
-
+    Input('refreshButtonId', 'n_clicks')
 
 )
-def buttonCallback(
-
-        pClick: int,
-        pChildren: list
-
-):
+def buttonCallback(pClick: int):
     '''  '''
 
-    # if (boot) <
-    # else (reset) <
-    if (not pClick): return pChildren
     return [
 
-        menuFunction(),
-        graphFunction()
+        dbc.Row(justify = 'center', children = menuFunction()),
+        dbc.Row(justify = 'center', children = graphFunction())
 
     ]
 

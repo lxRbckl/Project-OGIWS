@@ -5,6 +5,8 @@ from os import listdir, system
 import dash_bootstrap_components as dbc
 from dash.dependencies import Input, Output, State
 
+from backend.load import loadFunction
+from backend.create import createFunction
 from backend.resource import application, gDirectory
 
 # >
@@ -102,6 +104,7 @@ def menuFunction():
             dbc.Row(
 
                 justify = 'between',
+                style = dict(marginBottom = '15%'),
                 children = [
 
                     # edit <
@@ -144,8 +147,7 @@ def buttonCallback(
 
     pClick: int,
     pDropdownValue: str,
-    pInputValue: str,
-    s
+    pInputValue: str
 
 ):
     '''  '''

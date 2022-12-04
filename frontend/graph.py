@@ -10,8 +10,8 @@ from backend.resource import application, gDirectory
 def graphFunction():
     '''  '''
 
-    return html.Div(
+    return dbc.Col(
 
-        id = 'graphDivId'
+        children = html.H1('ok', style = dict(backgroundColor = '#000000'))
 
     )

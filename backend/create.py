@@ -7,4 +7,4 @@ import xlwt
 def createFunction(pFile: str):
     '''  '''
 
-    pass
+    wb = xlwt.Workbook()
