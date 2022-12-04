@@ -136,8 +136,39 @@ def menuLayout(
                 width = 3,
                 children = [
 
-                    # <
+                    # limit <
+                    # neighbor <
                     html.Hr(),
+                    dbc.InputGroup(
+
+                        size = 'sm',
+                        children = [
+
+                            # num col <
+                            # ytick <
+                            dbc.InputGroupText('Num. Col.'),
+                            dbc.Input(
+
+                                type = 'number',
+                                id = 'numcolInputId',
+                                value = pLimit['col']
+
+                            ),
+
+                            dbc.InputGroupText('ytick'),
+                            dbc.Input(
+
+                                type = 'number',
+                                id = 'ytickInputId',
+                                value = pLimit['ytick']
+
+                            )
+
+                            # >
+
+                        ]
+
+                    ),
                     *[
 
                         html.Div(children = dbc.InputGroup(
@@ -150,8 +181,24 @@ def menuLayout(
                                 # range left <
                                 # range right <
                                 dbc.InputGroupText(k.title()),
-                                dbc.Input(type = 'number', value = v['range'][0], min = 0, max = 25),
-                                dbc.Input(type = 'number', value = v['range'][1], min = 0, max = 25)
+                                dbc.Input(
+
+                                    min = 0,
+                                    max = 25,
+                                    id = f'{k}L',
+                                    type = 'number',
+                                    value = v['range'][0]
+
+                                ),
+                                dbc.Input(
+
+                                    min = 0,
+                                    max = 25,
+                                    id = f'{k}R',
+                                    type = 'number',
+                                    value = v['range'][1]
+
+                                )
 
                                 # >
 
@@ -163,31 +210,13 @@ def menuLayout(
 
                     # >
 
-                    # limit <
-                    html.Hr(),
-                    dbc.InputGroup(
-
-                        size = 'sm',
-                        children = [
-
-                            # number of col <
-                            # ytick <
-                            dbc.InputGroupText('Num. Col.'),
-                            dbc.Input(value = pLimit['col']),
-
-                            dbc.InputGroupText('ytick'),
-                            dbc.Input(value = pLimit['ytick'])
-
-                            # >
-
-                        ]
-
-                    ),
+                    # warning <
+                    dbc.FormText('Refresh after updating.'),
+                    html.Hr(id = 'hr123Id'),
 
                     # >
 
                     # update <
-                    html.Hr(),
                     dbc.Button(
 
                         children = 'Update',
@@ -217,7 +246,7 @@ def menuLayout(
     State('createInputId', 'value')
 
 )
-def buttonCallback(
+def editCallback(
 
     pClick: int,
     pDropdownValue: str,
@@ -235,6 +264,66 @@ def buttonCallback(
         # open requested <
         if (pInputValue): createFunction(pFile = pInputValue)
         openFunction(pFile = pInputValue if (pInputValue) else pDropdownValue)
+
+        # >
+
+        return None
+
+
+@application.callback(
+
+    Output('hr123Id', 'children'),
+    Input('updateButtonId', 'n_clicks'),
+    State('ytickInputId', 'value'),
+    State('numcolInputId', 'value'),
+    [State(f'{k}L', 'value') for k in jsonLoad(pFile = f'{gDirectory}/backend/template/neighbor.json').keys()],
+    [State(f'{k}R', 'value') for k in jsonLoad(pFile = f'{gDirectory}/backend/template/neighbor.json').keys()]
+
+)
+def updateCallback(
+
+        pClick: int,
+        pTick: str,
+        pCol: str,
+        *args,
+        pLimit: dict = jsonLoad(pFile = f'{gDirectory}/backend/template/limit.json'),
+        pNeighbor: dict = jsonLoad(pFile = f'{gDirectory}/backend/template/neighbor.json')
+
+):
+    '''  '''
+
+    if (not pClick): return None
+    else:
+
+        # set limit <
+        # set neighbor <
+        pLimit['col'] = pCol
+        pLimit['ytick'] = pTick
+        for c, i in enumerate(range(int(len(args) / 2)), start = 1):
+
+            pNeighbor[f'neighbor {c}'] = [
+
+                args[i],
+                args[i + int(len(args) / 2)]
+
+            ]
+
+        # >
+
+        # update limit <
+        # update neighbor <
+        jsonDump(
+
+            pData = pLimit,
+            pFile = f'{gDirectory}/backend/template/limit.json'
+
+        ),
+        jsonDump(
+
+            pData = pNeighbor,
+            pFile = f'{gDirectory}/backend/template/neighbor.json'
+
+        )
 
         # >
 

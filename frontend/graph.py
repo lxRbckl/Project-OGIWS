@@ -25,7 +25,7 @@ def graphLayout():
     State('createInputId', 'value')
 
 )
-def buttonCallback(
+def graphCallback(
 
         pClick: int,
         pDropdownValue: str,
