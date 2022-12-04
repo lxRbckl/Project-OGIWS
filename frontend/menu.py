@@ -22,8 +22,8 @@ def menuFunction():
             # message <
             dbc.Alert(
 
-                duration = 30,
                 is_open = False,
+                duration = 15000,
                 dismissable = True,
                 id = 'messageAlertId',
                 children = 'Action Completed.',
@@ -68,7 +68,6 @@ def menuFunction():
             html.Hr(),
 
             # >
-
 
             # open <
             # create <

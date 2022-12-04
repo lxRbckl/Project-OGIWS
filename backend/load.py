@@ -10,13 +10,37 @@ from backend.resource import gDirectory
 def loadFunction(
 
         pFile: str,
+        pLimit: dict = jsonLoad(pFile = f'{gDirectory}/backend/template/limit.json'),
         pSpeed: list = jsonLoad(pFile = f'{gDirectory}/backend/template/wspeed.json')
 
 ):
     '''  '''
 
     # open <
-    wb = xlrd.open_workbook(filename = f'{gDirectory}/{pFile}')
-    ws =
+    wb = xlrd.open_workbook(filename = f'{gDirectory}/backend/data/{pFile}')
+    ws = wb.sheet_by_name('Sheet 1')
+
+    # >
+
+    # load <
+    data = {s : [] for s in pSpeed}
+    for r, (s, i) in enumerate(data.items()):
+
+        for c in range(pLimit['row']):
+
+            try:
+
+                data[s].append(ws.cell_value(
+
+                    rowx = r,
+                    colx = c
+
+                ))
+
+            except: pass
+
+    for k, v in data.items():
+
+        print(k, v)
 
     # >
