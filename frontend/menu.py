@@ -18,15 +18,19 @@ def menuFunction():
         children = [
 
             # title <
-            # open <
-            # create <
-            # edit or graph <
             html.H2('Project OGIWS'),
             html.Hr(),
+
+            # >
+
+
+            # open <
+            # create <
+            # notify <
             dcc.Dropdown(
 
                 id = 'menuDropdownId',
-                placeholder = 'Select a file..',
+                placeholder = 'Open a file...',
                 style = dict(marginBottom = '2%'),
                 options = [
 
@@ -40,19 +44,44 @@ def menuFunction():
                 for f in listdir(path = f'{gDirectory}/data')]
 
             ),
-            html.Div(id = 'inputDivId'),
+            dbc.Input(id = 'createInputId', placeholder = 'Create a file...'),
+
+            # >
+
+            # alert <
+            dbc.FormText('Save your file when finished editing.'),
             html.Hr(),
+
+            # >
+
+            # action <
             dbc.Row(
 
                 justify = 'between',
                 children = [
 
-                    dbc.Col(width = 'auto', children = dbc.Button(id = 'editButtonId', children = 'Edit')),
-                    dbc.Col(width = 'auto', children = dbc.Button(id = 'graphButtonId', children = 'Graph'))
+                    # edit <
+                    # graph <
+                    dbc.Col(
+
+                        width = 'auto',
+                        children = dbc.Button(id = 'editButtonId', children = 'Edit')
+
+                    ),
+                    dbc.Col(
+
+                        width = 'auto',
+                        children = dbc.Button(id = 'graphButtonId', children = 'Graph')
+
+                    )
+
+                    # >
 
                 ]
 
             )
+
+            # >
 
         ]
 
@@ -61,27 +90,23 @@ def menuFunction():
 
 @application.callback(
 
-    Output('inputDivId', 'children'),
-    Input('menuDropdownId', 'value')
+    Output('graphDivId', 'children'),
+    Input('editButtonId', 'n_clicks'),
+    State('menuDropdownId', 'value'),
+    State('createInputId', 'value')
 
 )
-def dropdownCallback(pFile: str):
+def buttonCallback(
+
+    pClick: int,
+    pDropdownValue: str,
+    pInputValue: str
+
+):
     '''  '''
 
-    if (pFile): return None
-    else:
+    print(pClick) # remove
+    print(pDropdownValue) # remove
+    print(pInputValue) # remove
 
-        return [
-
-            dbc.Input(),
-            dbc.FormText('Save your file when finished.')
-
-        ]
-
-
-# @application.callback(
-#
-#     Output(),
-#     Input()
-#
-# )
+    return None

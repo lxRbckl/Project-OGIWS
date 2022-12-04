@@ -12,7 +12,7 @@ application = Dash(
 
     name = 'OGIWS',
     title = 'OGIWS',
-    # suppress_callback_exceptions = True,
+    suppress_callback_exceptions = True,
     external_stylesheets = [
 
         themes.GRID,
