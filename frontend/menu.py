@@ -17,8 +17,27 @@ def menuFunction():
         width = 3,
         children = [
 
-            # title <
-            html.H2('Project OGIWS'),
+            dbc.Row(
+
+                justify = 'between',
+                style = dict(
+
+                    marginTop = '2%',
+                    marginBottom = '-2%'
+
+                ),
+                children = [
+
+                    # title <
+                    # refresh <
+                    dbc.Col(width = 'auto', children = html.H2('Project OGIWS')),
+                    dbc.Col(width = 'auto', children = dbc.Button(children = '↻')),
+
+                    # >
+
+                ]
+
+            ),
             html.Hr(),
 
             # >
@@ -108,5 +127,7 @@ def buttonCallback(
     print(pClick) # remove
     print(pDropdownValue) # remove
     print(pInputValue) # remove
+
+
 
     return None

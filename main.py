@@ -4,6 +4,7 @@
 # import <
 from dash import html
 import dash_bootstrap_components as dbc
+from dash.dependencies import Input, Output, State
 
 from frontend.menu import menuFunction
 from frontend.graph import graphFunction
@@ -17,12 +18,13 @@ application.layout = dbc.Container(
     fluid = True,
     children = dbc.Row(
 
+        id = 'mainRowId',
         children = [
 
             # menu <
             # graph <
             menuFunction(),
-            html.Div(id = 'graphDivId')
+            graphFunction()
 
             # >
 
