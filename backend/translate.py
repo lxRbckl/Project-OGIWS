@@ -16,7 +16,9 @@ def translateFunction(
 ):
     '''  '''
 
-    # <
+    # filter data <
+    # get neighbor <
+    # rank outcome <
     f1 = lambda l : [int(i) for i in l if (i)]
     f2 = lambda l, r : [(j % 38) for i in l for j in range((int(i) - r[0]), (int(i) + r[1]))]
     f3 = lambda l : {i : l.count(i) for i in pGraph}
