@@ -1,7 +1,6 @@
 # import <
+from os import listdir
 from dash import html, dcc
-from lxRbckl import jsonLoad
-from os import listdir, system
 import dash_bootstrap_components as dbc
 from dash.dependencies import Input, Output, State
 
@@ -95,7 +94,7 @@ def menuFunction():
             # >
 
             # warning <
-            dbc.FormText('Warning: save your file when finished editing.'),
+            dbc.FormText('Save your file when finished editing.'),
             html.Hr(),
 
             # >
@@ -159,8 +158,8 @@ def buttonCallback(
 
         # if (input) <
         # open requested <
-        if (pInputValue): pass
-        #
+        if (pInputValue): createFunction(pFile = pInputValue)
+        loadFunction(pFile = pInputValue if (pInputValue) else pDropdownValue)
 
         # >
 

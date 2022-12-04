@@ -12,6 +12,6 @@ def graphFunction():
 
     return dbc.Col(
 
-        children = html.H1('ok', style = dict(backgroundColor = '#000000'))
+        children = html.H1('ok')
 
     )
