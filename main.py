@@ -35,6 +35,35 @@ application.layout = dbc.Container(
 )
 
 
+@application.callback(
+
+    Output('mainRowId', 'children'),
+    Input('refreshButtonId', 'n_clicks'),
+    State('mainRowId', 'children')
+
+
+)
+def buttonCallback(
+
+        pClick: int,
+        pChildren: list
+
+):
+    '''  '''
+
+    # if (boot) <
+    # else (reset) <
+    if (not pClick): return pChildren
+    return [
+
+        menuFunction(),
+        graphFunction()
+
+    ]
+
+    # >
+
+
 # main <
 if (__name__ == '__main__'): application.run_server(debug = True)
 

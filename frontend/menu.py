@@ -30,8 +30,18 @@ def menuFunction():
 
                     # title <
                     # refresh <
-                    dbc.Col(width = 'auto', children = html.H2('Project OGIWS')),
-                    dbc.Col(width = 'auto', children = dbc.Button(children = '↻')),
+                    dbc.Col(
+
+                        width = 'auto',
+                        children = html.H2('Project OGIWS')
+
+                    ),
+                    dbc.Col(
+
+                        width = 'auto',
+                        children = dbc.Button(id = 'refreshButtonId', children = '↻')
+
+                    ),
 
                     # >
 
