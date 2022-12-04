@@ -17,6 +17,20 @@ def menuFunction():
         width = 3,
         children = [
 
+            # message <
+            dbc.Alert(
+
+                is_open = True,
+                dismissable = True,
+                id = 'messageAlertId',
+                children = 'Action Completed.',
+                style = dict(marginTop = '2%')
+
+            ),
+
+            # >
+
+            # header <
             dbc.Row(
 
                 justify = 'between',
@@ -77,8 +91,8 @@ def menuFunction():
 
             # >
 
-            # alert <
-            dbc.FormText('Save your file when finished editing.'),
+            # warning <
+            dbc.FormText('Warning: save your file when finished editing.'),
             html.Hr(),
 
             # >
@@ -119,7 +133,7 @@ def menuFunction():
 
 @application.callback(
 
-    Output('graphDivId', 'children'),
+    Output('messageAlertId', 'is_open'),
     Input('editButtonId', 'n_clicks'),
     State('menuDropdownId', 'value'),
     State('createInputId', 'value')
@@ -134,10 +148,10 @@ def buttonCallback(
 ):
     '''  '''
 
-    print(pClick) # remove
     print(pDropdownValue) # remove
     print(pInputValue) # remove
 
+    # # if (boot) <
+    # if (not pClick):
 
-
-    return None
+    return True
