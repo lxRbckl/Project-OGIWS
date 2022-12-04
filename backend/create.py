@@ -10,7 +10,7 @@ from backend.resource import gDirectory
 def createFunction(
 
         pFile: str,
-        pSpeed: list = jsonLoad(pFile = f'{gDirectory}/template/wspeed.json')
+        pSpeed: list = jsonLoad(pFile = f'{gDirectory}/backend/template/wspeed.json')
 
 ):
     '''  '''
@@ -36,6 +36,6 @@ def createFunction(
     # >
 
     # save <
-    wb.save(f'{gDirectory}/data/{pFile}.xlsx')
+    wb.save(f'{gDirectory}/backend/data/{pFile}.xls')
 
     # >

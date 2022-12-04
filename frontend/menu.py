@@ -4,7 +4,7 @@ from dash import html, dcc
 import dash_bootstrap_components as dbc
 from dash.dependencies import Input, Output, State
 
-from backend.load import loadFunction
+from backend.open import openFunction
 from backend.create import createFunction
 from backend.resource import application, gDirectory
 
@@ -22,6 +22,7 @@ def menuFunction():
             # message <
             dbc.Alert(
 
+                duration = 30,
                 is_open = False,
                 dismissable = True,
                 id = 'messageAlertId',
@@ -86,7 +87,7 @@ def menuFunction():
 
                     }
 
-                for f in listdir(path = f'{gDirectory}/data')]
+                for f in listdir(path = f'{gDirectory}/backend/data') if ('DS_' not in f)]
 
             ),
             dbc.Input(id = 'createInputId', placeholder = 'Create a file...'),
@@ -159,7 +160,7 @@ def buttonCallback(
         # if (input) <
         # open requested <
         if (pInputValue): createFunction(pFile = pInputValue)
-        loadFunction(pFile = pInputValue if (pInputValue) else pDropdownValue)
+        openFunction(pFile = pInputValue if (pInputValue) else pDropdownValue)
 
         # >
 
