@@ -26,7 +26,7 @@ def loadFunction(
     load = {s : [] for s in pSpeed}
     for r, (s, i) in enumerate(load.items(), start = 1):
 
-        for c in range(1, pLimit['row']):
+        for c in range(1, pLimit['col']):
 
             try:
 

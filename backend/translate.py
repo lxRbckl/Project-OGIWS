@@ -30,7 +30,7 @@ def translateFunction(
         translate[k1] = []
         for k2, v2 in pNeighbor.items():
 
-            var = f3(l = f2(l = f1(l = v1), r = v2))
+            var = f3(l = f2(l = f1(l = v1), r = v2['range']))
             translate[k1].append({
 
                 'name' : k2,

@@ -46,8 +46,13 @@ def figureFunction(
     )
     figure.update_layout(
 
-        title = k,
+        title = f'Wheel Speed {k}',
         barmode = 'stack',
+        yaxis = dict(
+
+            dtick = pLimit['ytick']
+
+        ),
         xaxis = dict(
 
             type = 'category',
