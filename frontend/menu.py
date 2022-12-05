@@ -263,8 +263,8 @@ def editCallback(
 
         # if (input) <
         # open requested <
-        if (pInputValue): createFunction(pFile = pInputValue)
-        openFunction(pFile = pInputValue if (pInputValue) else pDropdownValue)
+        if (pInputValue): createFunction(pFile = f'{pInputValue}.xls')
+        openFunction(pFile = f'{pInputValue}.xls' if (pInputValue) else pDropdownValue)
 
         # >
 
