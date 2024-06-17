@@ -1,2 +1,2 @@
 ### `Project OGIWS`
-> Offset Graph by Individual Wheel Speed. Fall 2022. Proof of concept.
+> Offset Graph by Individual Wheel Speed. Proof of concept. Fall 2022.
